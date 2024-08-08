@@ -13,8 +13,8 @@ export const Navbar = () => {
           <NavLink to={"/"} className="nav-link">
             Home
           </NavLink>
-          <NavLink to={"/tours"} className="nav-link">
-            Tours
+          <NavLink to={"/hotels"} className="nav-link">
+            Hotels
           </NavLink>
           <NavLink to={"/destinations"} className="nav-link">
             Destinations

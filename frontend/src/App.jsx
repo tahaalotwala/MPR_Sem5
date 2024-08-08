@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HomeLayout } from "./pages/HomeLayout";
 import { Landing } from "./pages/Landing";
+import { FindHotels } from "./pages/FindHotels";
 
 const router = createBrowserRouter([
   {
@@ -10,6 +11,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Landing />,
+      },
+      {
+        path: "/hotels",
+        element: <FindHotels />,
       },
     ],
   },
