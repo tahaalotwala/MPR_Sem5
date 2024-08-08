@@ -4,6 +4,7 @@ import { Landing } from "./pages/Landing";
 import { FindHotels } from "./pages/FindHotels";
 import { TravelForm } from "./pages/TravelForm";
 import { ContactUs } from "./pages/ContactUs";
+import { AboutUs } from "./pages/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/plan",
         element: <TravelForm />,
+      },
+      {
+        path: "/about",
+        element: <AboutUs />,
       },
       {
         path: "/contact",
