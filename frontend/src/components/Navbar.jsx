@@ -16,8 +16,8 @@ export const Navbar = () => {
           <NavLink to={"/hotels"} className="nav-link">
             Hotels
           </NavLink>
-          <NavLink to={"/destinations"} className="nav-link">
-            Destinations
+          <NavLink to={"/plan"} className="nav-link">
+            Plan Trip
           </NavLink>
           <NavLink to={"/about"} className="nav-link">
             About Us
