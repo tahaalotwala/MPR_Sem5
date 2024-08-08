@@ -8,7 +8,7 @@ nav a.active {
 
 section#hero {
   background-image: url("./assets/images/hero-img.jpg");
-  height: 72vh;
+  height: calc(100vh - 5rem - 5rem);
   background-size: cover;
   background-position: center;
   position: relative;
@@ -30,4 +30,38 @@ section#hero::before {
 .hero-text {
   position: relative;
   z-index: 3;
+}
+
+.popular-places {
+  height: calc(100vh - 10rem);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.popular-tour {
+  overflow: hidden;
+}
+
+.popular-tour img {
+  height: 100%;
+  width: 100%;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5rem;
+  padding: 2rem;
+}
+
+.feature-card {
+  text-align: center;
+}
+
+.featured-tours {
+  padding: 2rem 3rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
 }
