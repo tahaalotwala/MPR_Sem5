@@ -1,5 +1,5 @@
 import express from 'express';
-import protectRoute from "../middleware/protectRoute.js";
+import protectRoute from "../middleware/protectRoute.middleware.js";
 import { createItinerary, getItineraries, getItineraryById, updateItinerary, deleteItinerary } from '../controllers/itinerary.controller.js';
 
 const router = express.Router();
