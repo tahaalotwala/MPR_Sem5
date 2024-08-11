@@ -10,8 +10,8 @@ export const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await login(username, password);
-    navigate("/");
+    const success = await login(username, password);
+    if(success) navigate("/");
   };
 
   return (
@@ -58,7 +58,7 @@ export const Login = () => {
 
           <div className="mt-6">
             <button
-              className="w-full py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none disabled:bg-blue-300"
+              className="w-full py-2 bg-black text-white rounded-xl focus:outline-none"
               disabled={loading}
             >
               {loading ? (

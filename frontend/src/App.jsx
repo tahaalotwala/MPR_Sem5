@@ -7,6 +7,7 @@ import { ContactUs } from "./pages/ContactUs";
 import { AboutUs } from "./pages/AboutUs";
 import { SignUp } from "./pages/Signup";
 import { Login } from "./pages/Login";
+import { Profile } from "./pages/Profile";
 import { Toaster } from "react-hot-toast";
 import { AuthContextProvider } from "./context/AuthContext";
 
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       }
     ],
   },

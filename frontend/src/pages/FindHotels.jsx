@@ -1,6 +1,5 @@
 import React from "react";
 import { Carousel } from "@material-tailwind/react";
-import { Navbar } from "../components/Navbar";
 import HotelCard from "../components/HotelCard";
 import img1 from "../assets/images/hotels/img1.jpeg";
 import img26 from "../assets/images/hotels/img26.jpeg";

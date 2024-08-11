@@ -1,11 +1,14 @@
 import { useState } from "react"
 import { useAuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+
 
 
 
 function useLogout() {
   const [loading,setLoading] = useState(false);
   const {setAuthUser,setAuthToken} = useAuthContext();
+  const navigate = useNavigate();
 
 
   const logout = async() => {
@@ -23,7 +26,7 @@ function useLogout() {
       localStorage.removeItem("travelapp-jwt");
       setAuthUser(null);
       setAuthToken(null);
-      // navigate("/login");
+      navigate("/");
     } catch(error) {
       toast.error(error.message);
     } finally{

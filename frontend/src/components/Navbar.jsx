@@ -1,11 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/icons/logo.png";
 import { useAuthContext } from "../context/AuthContext";
-import useLogout from "../hooks/useLogout";
+
+import Avatar from '@mui/material/Avatar';
 
 export const Navbar = () => {
   const {authUser} = useAuthContext();
-  const {logout} = useLogout();
+  
+
   return (
     <>
       <nav className="flex justify-between px-[5rem] h-[5rem] items-center">
@@ -41,12 +43,12 @@ export const Navbar = () => {
           <button className="nav-signup bg-black text-white px-3 py-[0.2rem] rounded-lg">Sign up</button>
           </NavLink>
           </>
-          : 
-            <button 
-            className="nav-logout bg-black text-white px-3 py-[0.2rem] rounded-lg"
-            onClick={logout}
-            >
-              Log out</button>
+          : <>
+            <NavLink to={"/profile"} className="flex nav-link justify-center items-center gap-2">
+            <span className="text-slate-500">{authUser.fullName}</span>
+            <Avatar alt="Remy Sharp" src={authUser.profilePic} className="cursor-pointer"/>
+            </NavLink>
+            </>
             }
 
         </section>
@@ -54,3 +56,4 @@ export const Navbar = () => {
     </>
   );
 };
+
