@@ -1,7 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/icons/logo.png";
+import { useAuthContext } from "../context/AuthContext";
+import useLogout from "../hooks/useLogout";
 
 export const Navbar = () => {
+  const {authUser} = useAuthContext();
+  const {logout} = useLogout();
   return (
     <>
       <nav className="flex justify-between px-[5rem] h-[5rem] items-center">
@@ -26,9 +30,25 @@ export const Navbar = () => {
             Contact
           </NavLink>
         </section>
+        
         <section className="nav-cta flex gap-3">
+        {!authUser ? 
+        <>
+        <NavLink to={"/login"} className= "nav-link">
           <button className="nav-login px-3 py-[0.2rem] rounded-lg">Log in</button>
+          </NavLink>
+          <NavLink to={"/signup"} className= "nav-link">
           <button className="nav-signup bg-black text-white px-3 py-[0.2rem] rounded-lg">Sign up</button>
+          </NavLink>
+          </>
+          : 
+            <button 
+            className="nav-logout bg-black text-white px-3 py-[0.2rem] rounded-lg"
+            onClick={logout}
+            >
+              Log out</button>
+            }
+
         </section>
       </nav>
     </>

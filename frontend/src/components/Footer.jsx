@@ -9,10 +9,10 @@ export const Footer = () => {
     <footer>
       <section className=" relative">
         <img src={banner} alt="" className="w-[100%]" />
-        <p className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-white text-center">
+        <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-white text-center">
           <p className="">Don't Know Which Destination To Choose?</p>
           <h3 className="text-xl font-bold my-2">Call Us (+91) 86522 02004</h3>
-        </p>
+        </div>
       </section>
       <main className="p-[4rem] flex justify-evenly">
         <div className="footer-col max-w-[20rem]">

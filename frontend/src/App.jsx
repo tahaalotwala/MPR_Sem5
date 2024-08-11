@@ -5,6 +5,10 @@ import { FindHotels } from "./pages/FindHotels";
 import { TravelForm } from "./pages/TravelForm";
 import { ContactUs } from "./pages/ContactUs";
 import { AboutUs } from "./pages/AboutUs";
+import { SignUp } from "./pages/Signup";
+import { Login } from "./pages/Login";
+import { Toaster } from "react-hot-toast";
+import { AuthContextProvider } from "./context/AuthContext";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +35,14 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <ContactUs />,
       },
+      {
+        path: "/signup",
+        element: <SignUp />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      }
     ],
   },
 ]);
@@ -38,7 +50,10 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
+    <AuthContextProvider>
       <RouterProvider router={router} />
+      <Toaster />
+    </AuthContextProvider>
     </>
   );
 }
