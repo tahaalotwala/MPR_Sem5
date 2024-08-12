@@ -2,13 +2,9 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { useAuthContext } from "../context/AuthContext";
 
-
-
-
 function useSignup() {
   const [loading, setLoading] = useState(false);
-  const { setAuthUser,setAuthToken } = useAuthContext();
-
+  const { setAuthUser, setAuthToken } = useAuthContext();
 
   const signup = async ({ fullName, username, password, confirmPassword, gender }) => {
     const success = handleInputErrors({ fullName, username, password, confirmPassword, gender });
@@ -17,7 +13,7 @@ function useSignup() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/signup", {
+      const res = await fetch("http://localhost:8080/api/auth/signup", {
         method: "Post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ fullName, username, password, confirmPassword, gender }),
@@ -32,24 +28,22 @@ function useSignup() {
       setAuthUser(userdata);
       setAuthToken(token);
       return true;
-
     } catch (error) {
       toast.error(error.message);
       return false;
     } finally {
       setLoading(false);
     }
-  }
+  };
 
   return { loading, signup };
-
 }
 
-export default useSignup
+export default useSignup;
 
 function handleInputErrors({ fullName, username, password, confirmPassword, gender }) {
   if (!fullName || !username || !password || !confirmPassword || !gender) {
-    toast.error("Please fill in all the fields")
+    toast.error("Please fill in all the fields");
     return false;
   }
   if (password != confirmPassword) {

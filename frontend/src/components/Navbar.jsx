@@ -2,11 +2,10 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/icons/logo.png";
 import { useAuthContext } from "../context/AuthContext";
 
-import Avatar from '@mui/material/Avatar';
+import Avatar from "@mui/material/Avatar";
 
 export const Navbar = () => {
-  const {authUser} = useAuthContext();
-  
+  const { authUser } = useAuthContext();
 
   return (
     <>
@@ -32,28 +31,27 @@ export const Navbar = () => {
             Contact
           </NavLink>
         </section>
-        
-        <section className="nav-cta flex gap-3">
-        {!authUser ? 
-        <>
-        <NavLink to={"/login"} className= "nav-link">
-          <button className="nav-login px-3 py-[0.2rem] rounded-lg">Log in</button>
-          </NavLink>
-          <NavLink to={"/signup"} className= "nav-link">
-          <button className="nav-signup bg-black text-white px-3 py-[0.2rem] rounded-lg">Sign up</button>
-          </NavLink>
-          </>
-          : <>
-            <NavLink to={"/profile"} className="flex nav-link justify-center items-center gap-2">
-            <span className="text-slate-500">{authUser.fullName}</span>
-            <Avatar alt="Remy Sharp" src={authUser.profilePic} className="cursor-pointer"/>
-            </NavLink>
-            </>
-            }
 
+        <section className="nav-cta flex gap-3">
+          {!authUser ? (
+            <>
+              <NavLink to={"/login"} className="nav-link">
+                <button className="nav-login px-3 py-[0.2rem] rounded-lg">Log in</button>
+              </NavLink>
+              <NavLink to={"/signup"} className="nav-link">
+                <button className="nav-signup bg-black text-white px-3 py-[0.2rem] rounded-lg">Sign up</button>
+              </NavLink>
+            </>
+          ) : (
+            <>
+              <NavLink to={"/profile"} className="flex nav-link justify-center items-center gap-2 font-semibold">
+                <span className="text-slate-500">{authUser.fullName}</span>
+                <Avatar alt="Remy Sharp" src={authUser.profilePic} className="cursor-pointer" />
+              </NavLink>
+            </>
+          )}
         </section>
       </nav>
     </>
   );
 };
-
