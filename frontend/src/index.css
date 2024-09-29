@@ -65,3 +65,35 @@ section#hero::before {
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
+
+/* Chatbot Styles */
+@layer components {
+  .chat {
+    @apply max-w-[30rem];
+    .message {
+      display: flex;
+      gap: 0.5rem;
+    }
+  }
+
+  .chat .message p {
+    @apply p-2 rounded-md;
+  }
+
+  .chat-left {
+    align-self: flex-start;
+    p {
+      @apply bg-gray-200;
+    }
+  }
+
+  .chat-right {
+    align-self: self-end;
+    .message {
+      flex-direction: row-reverse;
+    }
+    p {
+      @apply bg-slate-200;
+    }
+  }
+}

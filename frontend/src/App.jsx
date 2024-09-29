@@ -10,16 +10,19 @@ import { Login } from "./pages/Login";
 import { Profile } from "./pages/Profile";
 import { Toaster } from "react-hot-toast";
 import { AuthContextProvider } from "./context/AuthContext";
+import { ChatBot } from "./pages/ChatBot";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
     children: [
+      // Landing Page
       {
         index: true,
         element: <Landing />,
       },
+      // Nav - Links
       {
         path: "/hotels",
         element: <FindHotels />,
@@ -36,6 +39,7 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <ContactUs />,
       },
+      // Auth routes
       {
         path: "/signup",
         element: <SignUp />,
@@ -47,7 +51,12 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
-      }
+      },
+      // Features
+      {
+        path: "/chat",
+        element: <ChatBot />,
+      },
     ],
   },
 ]);
@@ -55,10 +64,10 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-    <AuthContextProvider>
-      <RouterProvider router={router} />
-      <Toaster />
-    </AuthContextProvider>
+      <AuthContextProvider>
+        <RouterProvider router={router} />
+        <Toaster />
+      </AuthContextProvider>
     </>
   );
 }
