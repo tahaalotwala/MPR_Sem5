@@ -4,7 +4,7 @@ const itinerarySchema = new mongoose.Schema(
   {
     userId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User", 
+      ref: "User",
       required: true,
     },
     destination: {
@@ -21,18 +21,8 @@ const itinerarySchema = new mongoose.Schema(
     },
     activities: [
       {
-        name: {
-          type: String,
-          required: true,
-        },
-        date: {
-          type: Date,
-          required: true,
-        },
-        location: {
-          type: String,
-          required: true,
-        },
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Activity",
       },
     ],
   },

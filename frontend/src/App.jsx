@@ -10,6 +10,7 @@ import { Login } from "./pages/Login";
 import { Profile } from "./pages/Profile";
 import { Toaster } from "react-hot-toast";
 import { AuthContextProvider } from "./context/AuthContext";
+import { TravelDestination } from "./pages/TravelDestination";
 
 const router = createBrowserRouter([
   {
@@ -47,7 +48,12 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
-      }
+      },
+      {
+        path: "/destination_search",
+        element: <TravelDestination />,
+      },
+
     ],
   },
 ]);
