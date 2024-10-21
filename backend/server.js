@@ -10,6 +10,7 @@ import itineraryRoutes from "./routes/itinerary.route.js";
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+
 app.use(express.json()); 
 app.use(cookieParser());
 app.use(express.urlencoded({extended: false}));
