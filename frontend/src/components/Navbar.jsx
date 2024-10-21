@@ -30,6 +30,9 @@ export const Navbar = () => {
           <NavLink to={"/contact"} className="nav-link">
             Contact
           </NavLink>
+          <NavLink to={"/chat"} className="nav-link">
+            ChatBot
+          </NavLink>
         </section>
 
         <section className="nav-cta flex gap-3">

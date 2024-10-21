@@ -4,15 +4,17 @@ import coverPhoto from "../assets/images/ProfilePage/temp_coverphoto_profilepage
 import useLogout from "../hooks/useLogout";
 import { favouriteHotels } from "../data/ProfilePageData";
 import FavouritesCard from "../components/FavouritesCard";
+import { Timeline } from "../components/Timeline";
+import { AccountSettings } from "../components/AccountSettings";
 
 export const Profile = () => {
   const { authUser } = useAuthContext();
   const { logout } = useLogout();
-  
+
   const [selectedSection, setSelectedSection] = useState("My Favourites");
 
   return (
-    <div className="profile-wrapper min-h-[80vh]">
+    <div className="profile-wrapper min-h-[80vh] mb-5">
       <div className="cover-photo bg-slate-400 h-72 overflow-hidden">
         <img src={coverPhoto} className="h-full w-full object-cover" alt="Cover" />
       </div>
@@ -27,10 +29,7 @@ export const Profile = () => {
           <span className="text-gray-600">
             @{authUser.username} | {authUser.location}
           </span>
-          <button
-            className="bg-black text-white px-3 py-[0.2rem] rounded-lg mt-4"
-            onClick={logout}
-          >
+          <button className="bg-black text-white px-3 py-[0.2rem] rounded-lg mt-4" onClick={logout}>
             Log out
           </button>
         </div>
@@ -38,22 +37,28 @@ export const Profile = () => {
 
       <div className="flex bg-[#EFEFEF] w-full h-12 items-center justify-evenly rounded-xl shadow-md mt-6">
         <p
-          className={`font-semibold tracking-wide cursor-pointer px-6 py-1 rounded-lg ${selectedSection === "My Favourites" ? "bg-[#FFFFFF]" : ""}`}
+          className={`font-semibold tracking-wide cursor-pointer px-6 py-1 rounded-lg ${
+            selectedSection === "My Favourites" ? "bg-[#FFFFFF]" : ""
+          }`}
           onClick={() => setSelectedSection("My Favourites")}
         >
           My Favourites
         </p>
         <p
-          className={`font-semibold tracking-wide cursor-pointer px-6 py-1 rounded-lg ${selectedSection === "Timeline" ? "bg-[#FFFFFF]" : ""}`}
+          className={`font-semibold tracking-wide cursor-pointer px-6 py-1 rounded-lg ${
+            selectedSection === "Timeline" ? "bg-[#FFFFFF]" : ""
+          }`}
           onClick={() => setSelectedSection("Timeline")}
         >
           Timeline
         </p>
         <p
-          className={`font-semibold tracking-wide cursor-pointer px-6 py-1 rounded-lg ${selectedSection === "Account Settings" ? "bg-[#FFFFFF]" : ""}`}
+          className={`font-semibold tracking-wide cursor-pointer px-6 py-1 rounded-lg ${
+            selectedSection === "Account Settings" ? "bg-[#FFFFFF]" : ""
+          }`}
           onClick={() => setSelectedSection("Account Settings")}
         >
-          Account Settings
+          Recent Trips
         </p>
       </div>
 
@@ -61,25 +66,20 @@ export const Profile = () => {
         {selectedSection === "My Favourites" && (
           <div className="favourites grid grid-cols-4 gap-3 my-6">
             {favouriteHotels.map((hotel, index) => (
-              <FavouritesCard
-                key={index}
-                image={hotel.image}
-                title={hotel.title}
-                price={hotel.price}
-              />
+              <FavouritesCard key={index} image={hotel.image} title={hotel.title} price={hotel.price} />
             ))}
           </div>
         )}
 
         {selectedSection === "Timeline" && (
           <div className="timeline">
-            <p>Timeline content goes here.</p>
+            <Timeline />
           </div>
         )}
 
         {selectedSection === "Account Settings" && (
           <div className="account-settings">
-            <p>Account settings content goes here.</p>
+            <AccountSettings />
           </div>
         )}
       </div>
