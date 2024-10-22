@@ -6,6 +6,8 @@ import { favouriteHotels } from "../data/ProfilePageData";
 import FavouritesCard from "../components/FavouritesCard";
 import axios from "axios";
 import { FiUpload } from "react-icons/fi";
+import { Timeline } from "../components/Timeline";
+import { AccountSettings } from "../components/AccountSettings";
 
 export const Profile = () => {
   const { authUser,authToken,setAuthUser } = useAuthContext();
@@ -73,22 +75,9 @@ export const Profile = () => {
     }
   };
   return (
-    <div className="profile-wrapper min-h-[80vh]">
-      <div className="cover-photo bg-slate-400 h-72 overflow-hidden relative">
-        <img
-          src={coverImg}
-          className="h-full w-full object-cover"
-          alt="Cover"
-        />
-        <label className="absolute top-4 right-4 cursor-pointer">
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleCoverImgUpload}
-            className="hidden"
-          />
-          <FiUpload className="fas fa-upload text-white text-xl" />
-        </label>
+    <div className="profile-wrapper min-h-[80vh] mb-5">
+      <div className="cover-photo bg-slate-400 h-72 overflow-hidden">
+        <img src={coverPhoto} className="h-full w-full object-cover" alt="Cover" />
       </div>
 
       <div className="profile-info flex h-32 relative">
@@ -114,10 +103,7 @@ export const Profile = () => {
           <span className="text-gray-600">
             @{authUser.username} | {authUser.location}
           </span>
-          <button
-            className="bg-black text-white px-3 py-[0.2rem] rounded-lg mt-4"
-            onClick={logout}
-          >
+          <button className="bg-black text-white px-3 py-[0.2rem] rounded-lg mt-4" onClick={logout}>
             Log out
           </button>
         </div>
@@ -146,7 +132,7 @@ export const Profile = () => {
           }`}
           onClick={() => setSelectedSection("Account Settings")}
         >
-          Account Settings
+          Recent Trips
         </p>
       </div>
 
@@ -154,25 +140,20 @@ export const Profile = () => {
         {selectedSection === "My Favourites" && (
           <div className="favourites grid grid-cols-4 gap-3 my-6">
             {favouriteHotels.map((hotel, index) => (
-              <FavouritesCard
-                key={index}
-                image={hotel.image}
-                title={hotel.title}
-                price={hotel.price}
-              />
+              <FavouritesCard key={index} image={hotel.image} title={hotel.title} price={hotel.price} />
             ))}
           </div>
         )}
 
         {selectedSection === "Timeline" && (
           <div className="timeline">
-            <p>Timeline content goes here.</p>
+            <Timeline />
           </div>
         )}
 
         {selectedSection === "Account Settings" && (
           <div className="account-settings">
-            <p>Account settings content goes here.</p>
+            <AccountSettings />
           </div>
         )}
       </div>
